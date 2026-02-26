@@ -35,26 +35,23 @@
 #
 #-******************************************************************************
 
-import os
-import imp
+import importlib.util
 from distutils.core import setup
 
 def get_deps(*args):
     deps = []
     for mod in args:
-        try:
-            imp.find_module(mod)
-        except ImportError:
+        if importlib.util.find_spec(mod) is None:
             deps.append(mod)
     return deps
 
 setup(
-    name='cask',
-    version='1.0.2',
-    description='Cask - High level convenience wrapper for Alembic files',
-    author='Ryan Galloway',
-    author_email='ryang@ilm.com',
-    url='http://docs.alembic.io/python/cask.html',
+    name="cask",
+    version="1.0.2",
+    description="Cask - High level convenience wrapper for Alembic files",
+    author="Ryan Galloway",
+    author_email="ryang@ilm.com",
+    url="http://docs.alembic.io/python/cask.html",
     py_modules=["cask"],
-    install_requires=get_deps("imath", "alembic")
+    # install_requires=get_deps("imath", "alembic"),
 )
