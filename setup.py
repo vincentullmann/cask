@@ -35,16 +35,8 @@
 #
 #-******************************************************************************
 
-import importlib.util
-from distutils.core import setup
+from setuptools import setup
 
-
-def get_deps(*args):
-    deps = []
-    for mod in args:
-        if importlib.util.find_spec(mod) is None:
-            deps.append(mod)
-    return deps
 
 setup(
     name="cask",
