@@ -38,6 +38,7 @@
 import importlib.util
 from distutils.core import setup
 
+
 def get_deps(*args):
     deps = []
     for mod in args:
@@ -47,7 +48,7 @@ def get_deps(*args):
 
 setup(
     name="cask",
-    version="1.0.2",
+    version="1.2.0",
     description="Cask - High level convenience wrapper for Alembic files",
     author="Ryan Galloway",
     author_email="ryang@ilm.com",
